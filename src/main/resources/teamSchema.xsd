@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://bsuir.by/teamSchema"
+        xmlns:tns="http://bsuir.by/teamSchema">
+
+    <element name="team">
+        <complexType>
+           <sequence>
+               <element name="softwareProduct" type="tns:SoftwareProductType"/>
+               <element name="teamLead" type="tns:TeamLeadType"/>
+               <element name="developers" type="tns:DevelopersType"/>
+               <element name="testers" type="tns:TestersType"/>
+               <element name="businessAnalysts" type="tns:BusinessAnalystsType"/>
+           </sequence>
+        </complexType>
+    </element>
+
+    <simpleType name="PhoneNumberType">
+        <restriction base="string">
+            <pattern value="\([0-9]{2}\)-[0-9]{3}-[0-9]{2}-[0-9]{2}"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="Entity">
+        <attribute name="id" type="ID" use="required"/>
+    </complexType>
+
+    <complexType name="EmployeeType">
+        <complexContent>
+            <extension base="tns:Entity">
+                <sequence>
+                    <element name="name" type="string"/>
+                    <element name="surname" type="string"/>
+                    <element name="phoneNumber" type="tns:PhoneNumberType"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="DeveloperType">
+        <complexContent>
+            <extension base="tns:EmployeeType">
+                <sequence>
+                    <element name="favoriteGame" type="string"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="BusinessAnalystType">
+        <complexContent>
+            <extension base="tns:EmployeeType">
+                <sequence>
+                    <element name="nickName" type="string"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="TesterType">
+        <complexContent>
+            <extension base="tns:EmployeeType">
+                <sequence>
+                    <element name="testsWritten" type="positiveInteger"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="TeamLeadType">
+        <complexContent>
+            <extension base="tns:DeveloperType">
+                <sequence>
+                    <element name="motto" type="string"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    
+    <complexType name="SoftwareProductType">
+        <complexContent>
+            <extension base="tns:Entity">
+                <sequence>
+                    <element name="customer" type="string"/>
+                    <element name="title" type="string"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    
+    <complexType name="DevelopersType">
+        <sequence>
+            <element name="developer" type="tns:DeveloperType" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="BusinessAnalystsType">
+        <sequence>
+            <element name="businessAnalyst" type="tns:BusinessAnalystType" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="TestersType">
+        <sequence>
+            <element name="tester" type="tns:TesterType" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+
+</schema>

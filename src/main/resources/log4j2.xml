@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<Configuration status="debug" strict="true"
+               name="XMLConfig" packages="org.apache.logging.log4j.test">
+    <Filter type="ThresholdFilter" level="trace" />
+
+    <Appenders>
+       z
+        <RollingFile name="rollingFile"
+                     fileName="logs/lab3.log"
+                     filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout>
+                <Pattern>%d %p %c{3.} [%t] %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval = "1" />
+                <SizeBasedTriggeringPolicy
+                        size="250 MB" />
+            </Policies>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Root level="trace">
+            <AppenderRef ref="stdout"/>
+            <AppenderRef ref="rollingFile" level="error" />
+        </Root>
+    </Loggers>
+
+</Configuration>

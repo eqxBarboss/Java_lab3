@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<team:team xmlns:team="http://bsuir.by/teamSchema"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://bsuir.by/teamSchema teamSchema.xsd">
+
+    <softwareProduct id="s1">
+        <customer>Customer</customer>
+        <title>Title</title>
+    </softwareProduct>
+    
+    <teamLead id="tl1">
+        <name>Jason</name>
+        <surname>Born</surname>
+        <phoneNumber>(29)-111-11-11</phoneNumber>
+        <favoriteGame>CS:GO</favoriteGame>
+        <motto>Do ur best</motto>
+    </teamLead>
+
+    <developers>
+
+        <developer id="d1">
+            <name>Adam</name>
+            <surname>Born</surname>
+            <phoneNumber>(44)-222-22-22</phoneNumber>
+            <favoriteGame>Game</favoriteGame>
+        </developer>
+
+        <developer id="d2">
+            <name>Mada</name>
+            <surname>Nrob</surname>
+            <phoneNumber>(44)-222-22-22</phoneNumber>
+            <favoriteGame>Emag</favoriteGame>
+        </developer>
+
+    </developers>
+
+    <testers>
+
+        <tester id="t1">
+            <name>Name</name>
+            <surname>Surname</surname>
+            <phoneNumber>(24)-111-11-11</phoneNumber>
+            <testsWritten>12</testsWritten>
+        </tester>
+
+    </testers>
+
+    <businessAnalysts>
+
+        <businessAnalyst id="b1">
+            <name>Aasd</name>
+            <surname>ASDasd</surname>
+            <phoneNumber>(22)-123-12-12</phoneNumber>
+            <nickName>Poop</nickName>
+        </businessAnalyst>
+
+    </businessAnalysts>
+
+</team:team>

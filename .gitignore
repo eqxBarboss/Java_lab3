@@ -1,0 +1,9 @@
+.DS_STORE
+out/
+.idea/
+*.iml
+src/test/
+target/
+src/main/java/coolTeam.xml
+javadoc/
+
